@@ -1,0 +1,11 @@
+require('./Course');
+require('./Level');
+require('./Student');
+require('./TutorReview');
+require('./BookmarkedTutor');
+require('./Tutor');
+require('./Email');
+require('./Booking');
+require('./Offer');
+require('./PaymentMethod');
+require('./User');
