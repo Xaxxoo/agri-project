@@ -1,0 +1,23 @@
+// Update entities function - updated to prevent infinite loop
+const updateEntities = useCallback(() => {
+  // Use functional updates to prevent dependency issues
+  
+  // Update bullets position
+  setBullets(prevBullets => prevBullets
+    .filter(bullet => (
+      bullet.pos.x >= 0 && 
+      bullet.pos.x < STAGE_WIDTH
+    ))
+    .map(bullet => ({
+      ...bullet,
+      pos: {
+        ...bullet.pos,
+        x: bullet.pos.x + (bullet.direction === 'right' ? 1 : -1)
+      }
+    }))
+  );
+  
+  // Update enemies position and behavior
+  setEnemies(prevEnemies => prevEnemies
+    .map(enemy => {
+      const moveX = enemy.direction 
